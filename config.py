@@ -7,6 +7,7 @@ BACKEND_URL = config['SYS']['BACKEND_URL']
 ML_URL = config['SYS']['ML_URL']
 
 HOST = config['DATABASE']['HOST']
+PORT = int(config['DATABASE']['PORT'])
 USER = config['DATABASE']['USER']
 PASSWORD = config['DATABASE']['PASSWORD']
 DATABASE = config['DATABASE']['DATABASE']

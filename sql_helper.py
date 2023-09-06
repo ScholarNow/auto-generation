@@ -1,11 +1,11 @@
 import pymysql
-from config import HOST, USER, PASSWORD, DATABASE
+from config import HOST, USER, PASSWORD, DATABASE, PORT
 import json
 from models import TABLE_FUN_MAP, TABLE_MODEL_MAP, NewsEntity,tuple_to_news_entity
 
 class IConnect():
     def __init__(self):
-        self.connet = pymysql.connect(host=HOST, user=USER, password=PASSWORD, database=DATABASE, charset='utf8')
+        self.connet = pymysql.connect(host=HOST, user=USER, port=PORT, password=PASSWORD, database=DATABASE, charset='utf8')
         self.cursor = self.connet.cursor()
 
     def insert(self, table, data):

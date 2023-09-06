@@ -9,6 +9,7 @@ import json
 from models import NewsEntity, NewsLogsEntity
 
 def main(path:str, basename:str, date:int):
+    print(f"paper: {basename}")
     json_path = os.path.join(path, str(date), basename + ".json")
     pdf_path = os.path.join(path, str(date), basename + ".pdf")
     json_content = get_json_content(json_path)
@@ -137,7 +138,7 @@ def main(path:str, basename:str, date:int):
     subject = "" if "subject" not in json_content else json_content["subject"]
     category = "" if "category" not in json_content else json_content["category"]
     authors = [] if "authors" not in json_content else json_content["authors"]
-    figures = parse_result["data"]["figures"] if "figures" not in json_content else json_content["figures"]
+    figures = parse_result["data"]["figures"] if "figures" not in json_content else []
     news_title = title_result["data"]
     news_keywords = keywords_result["data"]
     news_intro = intro_result["rephrase_result"]["data"]
@@ -168,8 +169,11 @@ def main(path:str, basename:str, date:int):
         newsLogs = NewsLogsEntity(id=id, details=json.dumps(process_result))
 
         connect.insert(NEWS_LOGS_TABLE, connect.loads(newsLogs.__dict__))
+        
+        print(f"paper done: {basename}")
 
-    except Exception:
+    except Exception as e:
+        print(e)
         return
     
 

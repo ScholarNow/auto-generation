@@ -1,2 +1,5 @@
 papers/
 __pycache__/
+run.log
+scripts.py
+config.ini

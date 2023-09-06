@@ -1,0 +1,19 @@
+
+[SYS]
+BACKEND_URL =
+ML_URL = 
+
+[DATABASE]
+HOST=
+PORT=3306
+USER=
+PASSWORD=
+DATABASE=
+NEWS_TABLE=
+NEWS_LOGS_TABLE=
+
+[DEFAULT]
+# default papers path which store multi folders with `YYMMDD` named
+PATH = 
+# default frequence in `cron` format
+CRON = 
